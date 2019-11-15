@@ -1,5 +1,5 @@
 {
-  "name": "deviant-art-clone",
+  "name": "kegtracker",
   "version": "1.0.0",
   "description": "",
   "main": "index.jsx",
@@ -9,7 +9,7 @@
     "lint": "eslint src/** src/**/**; exit 0",
     "lint-fix": "eslint src/** src/**/** --fix; exit 0"
   },
-  "author": "loewy malkovich and nikhil batta",
+  "author": "nikhil batta",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.24.1",
