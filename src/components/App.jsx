@@ -10,7 +10,6 @@ function App(){
     <div>
       
       <Switch>
-        <h2>Hello World</h2>
         <Route></Route>
       </Switch>
     </div>
