@@ -1,5 +1,5 @@
 import React from 'react';
-
+import KegFeed from './KegFeed';
 import { Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -10,6 +10,7 @@ function App(){
     <div>
       
       <Switch>
+        <KegFeed/>
         <Route></Route>
       </Switch>
     </div>
