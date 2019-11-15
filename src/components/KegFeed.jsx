@@ -7,6 +7,12 @@ var kegList = [
     brand: 'Coors',
     price: 20,
     alcContent: '8.4%'
+  },
+  {
+      name: "Bud Light",
+      brand: "Bud Light",
+      price: 25,
+      alcContent: '7.65%'
   }
 ];
 function KegFeed(){
