@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
+import {Navbar, Nav} from 'react-bootstrap'
 
 function Header(){
     return (
@@ -10,6 +10,7 @@ function Header(){
     <Nav className="mr-auto">
       <Nav.Link href="#aboutus">About Us</Nav.Link>
       <Nav.Link href="#allkegs">AllKegs</Nav.Link>
+      <Nav.Link href="#newkeg">New Keg</Nav.Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar>

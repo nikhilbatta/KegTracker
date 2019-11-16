@@ -9,7 +9,9 @@ function Keg(props){
       <h2>Price: {props.price}</h2>
       <h4>Alcohol Content: {props.alcContent}</h4>
       <h4>Pints Available: {props.pintsAvailable}</h4>
+      <button> I just sold!</button>
       <hr/>
+      
     </div>
   );
     
