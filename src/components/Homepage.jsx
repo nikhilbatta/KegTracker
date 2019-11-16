@@ -3,10 +3,12 @@ import React from 'react';
  
 function Homepage()
 {
+    var homeStyles = {
+        textAlign: 'center'
+    }
     return (
-        <div>
+        <div style={homeStyles}>
             <h1>Welcome To Your KegTracker</h1>
-            
         </div>
     )
 }
