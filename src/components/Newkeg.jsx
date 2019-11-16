@@ -2,7 +2,7 @@ import React from 'react';
 
 function Newkeg(){
     return (
-        <div class="container">
+        <div className="container">
         <form>
             <div class="form-group">
           <input
@@ -10,18 +10,18 @@ function Newkeg(){
             id='name'
             placeholder='Name of the keg'/>
             </div>
-            <div class="form-group">
+            <div className="form-group">
           <input
             type='text'
             id='brand'
             placeholder='Brand of the keg'/>
             </div>
-            <div class="form-group">
+            <div className="form-group">
           <input
             id='price'
             placeholder='Price per pint.'/>
             </div>
-            <div class="form-group">
+            <div className="form-group">
             <input
              id='alcContent'
              placeholder='alcohol content for the keg'/>

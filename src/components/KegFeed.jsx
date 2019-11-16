@@ -19,7 +19,7 @@ var kegList = [
 ];
 function KegFeed(){
   return (
-    <div>
+    <div className="card">
       {kegList.map((k,index) =>
         <Keg name={k.name}
           brand={k.brand}
