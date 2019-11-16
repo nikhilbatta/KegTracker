@@ -1,6 +1,11 @@
 import React from 'React';
 import PropTypes from 'prop-types';
 
+// class Keg extends React.Component {
+//     state = {
+
+//     }
+// }
 function Keg(props){
     var kegStyler = {
         display: 'flex',

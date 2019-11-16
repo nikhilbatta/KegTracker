@@ -1,6 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-function Newkeg(){
+
+function Newkeg(props){
+    let _name = null;
+    let _brand = null;
+    let _price = null;
+    let _alcContent = null;
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        props.onNewKegCreation({name: _name.value, brand: _brand.value, price: _price.value, alcContent: _alcContent.value})
+
+    }
     var divformStyle = {
         textAlight: 'center',
         float: 'center',
@@ -16,32 +28,39 @@ function Newkeg(){
         
         <div style={divformStyle}>
             <h2>Create a Keg</h2>
-        <form style={formStyle}>
-            <div class="form-group">
+        <form onSubmit={handleSubmit} style={formStyle}>
+            <div className="form-group">
           <input
             type='text'
             id='name'
-            placeholder='Name of the keg'/>
+            placeholder='Name of the keg'
+            ref={(input) => {_name = input;}}/>
             </div>
             <div className="form-group">
           <input
             type='text'
             id='brand'
-            placeholder='Brand of the keg'/>
+            placeholder='Brand of the keg'
+            ref={(input) => {_brand = input;}}/>
             </div>
             <div className="form-group">
           <input
             id='price'
-            placeholder='Price per pint.'/>
+            placeholder='Price per pint.'
+            ref={(input) => {_price = input;}}/>
             </div>
             <div className="form-group">
             <input
              id='alcContent'
-             placeholder='alcohol content for the keg'/>
+             placeholder='alcohol content for the keg'
+             ref={(input) => {_alcContent = input;}}/>
              </div>
           <button type='submit'>New Keg Way!</button>
         </form>
       </div>
     )
 }
+Newkeg.propTypes = {
+    onNewKegCreation: PropTypes.func
+  };
 export default Newkeg;

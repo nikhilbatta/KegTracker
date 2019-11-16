@@ -1,5 +1,6 @@
 import React from 'react';
 import Keg from './Keg';
+import PropTypes from 'prop-types'
 
 var kegList = [
   {
@@ -17,10 +18,10 @@ var kegList = [
       pintsAvailable: 124
   }
 ];
-function KegFeed(){
+function KegFeed(props){
   return (
     <div className="card">
-      {kegList.map((k,index) =>
+      {props.kegFeed.map((k,index) =>
         <Keg name={k.name}
           brand={k.brand}
           price={k.price}
@@ -30,5 +31,8 @@ function KegFeed(){
       )}
     </div>
   );
+}
+KegFeed.propTypes = {
+    kegFeed : PropTypes.array
 }
 export default KegFeed;
