@@ -1,9 +1,22 @@
 import React from 'react';
 
 function Newkeg(){
+    var divformStyle = {
+        textAlight: 'center',
+        float: 'center',
+        marginLeft: '500px'
+    }
+    var formStyle = {
+        display: 'inline-block',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        textAlign: 'left'
+    }
     return (
-        <div className="container">
-        <form>
+        
+        <div style={divformStyle}>
+            <h2>Create a Keg</h2>
+        <form style={formStyle}>
             <div class="form-group">
           <input
             type='text'
@@ -26,7 +39,7 @@ function Newkeg(){
              id='alcContent'
              placeholder='alcohol content for the keg'/>
              </div>
-          <button type='submit'>Help!</button>
+          <button type='submit'>New Keg Way!</button>
         </form>
       </div>
     )
