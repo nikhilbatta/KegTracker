@@ -8,11 +8,20 @@ function Keg(props){
         flexFlow: 'row wrap',
         justifyContent: 'space-around'
     }
-    var pintStyle = {
-      backgroundColor: props.backgroundColor
+    function styleByPintsAvailable(){
+      var stylerVariable = "black"
+      if(props.pintsAvailable <= 120){
+        stylerVariable = "red"
+      }
+      var pintStyle = {
+      backgroundColor: stylerVariable
+        }
+    return pintStyle;
     }
+    
     function handleButtonClick(){
       props.handleSoldPint(props.index)
+      
     }
     function handleDeleteClick(){
       props.onDelete(props.index)
@@ -22,7 +31,7 @@ function Keg(props){
     Brand: <h2>{props.brand}</h2>
     Price:<h2> {props.price}</h2>
     Alcohol Content:<h4> {props.alcContent}</h4>
-    <div style={pintStyle}>
+    <div style={styleByPintsAvailable()}>
     Pints Available:  <h4>{props.pintsAvailable}</h4>
     </div>
     <button onClick={handleButtonClick}> I just sold!</button>
