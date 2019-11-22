@@ -17,7 +17,7 @@ function Keg(props){
     function handleDeleteClick(){
       props.onDelete(props.index)
     }
-    const kegInformation =  <div style={kegStyler} className="container">
+    const kegInformation =  <div  className="card">
     Name: <h3> {props.name}</h3>
     Brand: <h2>{props.brand}</h2>
     Price:<h2> {props.price}</h2>
@@ -40,7 +40,7 @@ function Keg(props){
 
     
   return(
-   <div>
+   <div className="card">
      {kegInformation}
    </div>
   );
