@@ -31,7 +31,9 @@ function KegFeed(props){
           key={index}
           index={index}
           handleSoldPint={props.handleSoldPint}
-          backgroundColor={props.backgroundColor} />
+          backgroundColor={props.backgroundColor}
+          currentRouterPath={props.currentRouterPath}
+          onDelete={props.onDelete} />
       )}
     </div>
   );

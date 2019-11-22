@@ -2,7 +2,7 @@ import React from 'React';
 import PropTypes from 'prop-types';
 
 function Keg(props){
-  console.log("keg" + props.pintsAvailable)
+ 
     var kegStyler = {
         display: 'flex',
         flexFlow: 'row wrap',
@@ -14,21 +14,37 @@ function Keg(props){
     function handleButtonClick(){
       props.handleSoldPint(props.index)
     }
-  return(
-    <div style={kegStyler} className="container">
-      Name: <h3> {props.name}</h3>
-      Brand: <h2>{props.brand}</h2>
-      Price:<h2> {props.price}</h2>
-      Alcohol Content:<h4> {props.alcContent}</h4>
-      <div style={pintStyle}>
-      Pints Available:  <h4>{props.pintsAvailable}</h4>
-      </div>
-      <button onClick={handleButtonClick}> I just sold!</button>
-      
-      
+    function handleDeleteClick(){
+      props.onDelete(props.index)
+    }
+    const kegInformation =  <div style={kegStyler} className="container">
+    Name: <h3> {props.name}</h3>
+    Brand: <h2>{props.brand}</h2>
+    Price:<h2> {props.price}</h2>
+    Alcohol Content:<h4> {props.alcContent}</h4>
+    <div style={pintStyle}>
+    Pints Available:  <h4>{props.pintsAvailable}</h4>
     </div>
-  );
+    <button onClick={handleButtonClick}> I just sold!</button>
     
+    
+  </div>
+    if(props.currentRouterPath == "/admin"){
+      return (
+        <div>
+          {kegInformation}
+          <button onClick={handleDeleteClick}>Delete only for Admin</button>
+        </div>
+      )
+    } else {
+
+    
+  return(
+   <div>
+     {kegInformation}
+   </div>
+  );
+}
 }
 Keg.propTypes = {
   name: PropTypes.string,
