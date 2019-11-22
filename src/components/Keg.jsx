@@ -1,16 +1,18 @@
 import React from 'React';
 import PropTypes from 'prop-types';
 
-// class Keg extends React.Component {
-//     state = {
-
-//     }
-// }
 function Keg(props){
+  console.log("keg" + props.pintsAvailable)
     var kegStyler = {
         display: 'flex',
         flexFlow: 'row wrap',
         justifyContent: 'space-around'
+    }
+    var pintStyle = {
+      backgroundColor: props.backgroundColor
+    }
+    function handleButtonClick(){
+      props.handleSoldPint(props.index)
     }
   return(
     <div style={kegStyler} className="container">
@@ -18,8 +20,10 @@ function Keg(props){
       Brand: <h2>{props.brand}</h2>
       Price:<h2> {props.price}</h2>
       Alcohol Content:<h4> {props.alcContent}</h4>
+      <div style={pintStyle}>
       Pints Available:  <h4>{props.pintsAvailable}</h4>
-      <button> I just sold!</button>
+      </div>
+      <button onClick={handleButtonClick}> I just sold!</button>
       
       
     </div>

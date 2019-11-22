@@ -7,10 +7,11 @@ function Newkeg(props){
     let _brand = null;
     let _price = null;
     let _alcContent = null;
+    let _pintsAvailable = null;
 
     function handleSubmit(event) {
         event.preventDefault();
-        props.onNewKegCreation({name: _name.value, brand: _brand.value, price: _price.value, alcContent: _alcContent.value})
+        props.onNewKegCreation({name: _name.value, brand: _brand.value, price: _price.value, alcContent: _alcContent.value, pints: parseInt(_pintsAvailable.value)})
 
     }
     var divformStyle = {
@@ -54,6 +55,12 @@ function Newkeg(props){
              id='alcContent'
              placeholder='alcohol content for the keg'
              ref={(input) => {_alcContent = input;}}/>
+             </div>
+             <div className="form-group">
+            <input
+             id='pintsAvailable'
+             placeholder='Pints available for this keg'
+             ref={(input) => {_pintsAvailable = input;}}/>
              </div>
           <button type='submit'>New Keg Way!</button>
         </form>

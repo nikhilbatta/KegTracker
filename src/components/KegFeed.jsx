@@ -19,6 +19,7 @@ var kegList = [
   }
 ];
 function KegFeed(props){
+  console.log(props.kegFeed)
   return (
     <div className="card">
       {props.kegFeed.map((k,index) =>
@@ -26,13 +27,17 @@ function KegFeed(props){
           brand={k.brand}
           price={k.price}
           alcContent={k.alcContent}
-          pintsAvailable={k.pintsAvailable}
-          key={index} />
+          pintsAvailable={k.pints}
+          key={index}
+          index={index}
+          handleSoldPint={props.handleSoldPint}
+          backgroundColor={props.backgroundColor} />
       )}
     </div>
   );
 }
 KegFeed.propTypes = {
-    kegFeed : PropTypes.array
+    kegFeed : PropTypes.array,
+    handleSoldPint: PropTypes.func
 }
 export default KegFeed;
