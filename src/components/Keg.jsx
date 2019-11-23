@@ -6,6 +6,8 @@ function Keg(props) {
   
   const [edit, setEdit] = useState(false);
   const [name, setName] = useState(props.name);
+  const inputRef = React.createRef()
+
 
   
   function styleByPintsAvailable() {
@@ -37,13 +39,22 @@ function Keg(props) {
     <button onClick={handleButtonClick}> I just sold!</button>
   </div>
  
+ const updateQuery = () => {
+  const inputText = inputRef.current.value
+  setName(inputText)
+  props.updateKeg(props.index, inputText)
+  setEdit(false);
 
+}
   // dont run lifecycle method unless the route is admin.
   // otherwise what happens is that if you are on non admin route props.updateKeg isnt a function, which it shouldnt be for any route except for admin.
   useEffect(() => {
     if (props.currentRouterPath == '/admin') {
-      console.log(props.updateKeg)
-      props.updateKeg(props.index, name)
+      if(edit){
+        console.log(props.updateKeg)
+        props.updateKeg(props.index, name)
+      }
+      
     }
 
   }, [name])
@@ -54,8 +65,9 @@ function Keg(props) {
     if (edit) {
       return (
         <div>
-          <button onClick={() => setEdit(!edit)}>Save</button>
-          <input type="text" onChange={e => setName(e.target.value)} defaultValue={props.name}></input>
+          
+          <input ref={inputRef} defaultValue={props.name}></input>
+          <button onClick={updateQuery}>Save</button>
         </div>
       )
     }
