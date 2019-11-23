@@ -19,6 +19,12 @@ class App extends React.Component {
         this.addBeer = this.addBeer.bind(this);
         this.handleSoldPint = this.handleSoldPint.bind(this);
         this.handleDeleteKeg = this.handleDeleteKeg.bind(this);
+        this.updateKeg = this.updateKeg.bind(this);
+    }
+    updateKeg(i, newText){
+        var copyOfMaster = this.state.masterKegList;
+        copyOfMaster[i].name = newText;
+        this.setState({masterKegList: copyOfMaster});
     }
     handleDeleteKeg(i){
         console.log(i)
@@ -37,6 +43,7 @@ class App extends React.Component {
         this.setState({masterKegList: copyOfMaster })
     }
     addBeer(newKeg){
+        console.log(newKeg)
         var newKegList = this.state.masterKegList.slice();
         newKegList.push(newKeg);
         this.setState({masterKegList: newKegList})
@@ -47,10 +54,10 @@ class App extends React.Component {
       <Header/>
       <Switch>
         <Route exact path='/' component={Homepage} />
-        <Route exact path='/allkegs' render={() => <KegFeed kegFeed={this.state.masterKegList} handleSoldPint={this.handleSoldPint} backgroundColor={this.state.backgroundColor} />} />
+        <Route exact path='/allkegs' render={() => <KegFeed kegFeed={this.state.masterKegList} handleSoldPint={this.handleSoldPint}  />} />
         <Route exact path = '/aboutus' component={About} />
         <Route exact path = '/newkeg' render={() => <NewKegControl onNewKegCreation={this.addBeer} />}/>
-        <Route exact path = '/admin' render={(props) => <Admin masterKegList={this.state.masterKegList} currentRouterPath={props.location.pathname} onDelete={this.handleDeleteKeg} />} />
+        <Route exact path = '/admin' render={(props) => <Admin masterKegList={this.state.masterKegList} currentRouterPath={props.location.pathname} onDelete={this.handleDeleteKeg} updateKeg={this.updateKeg} />} />
       </Switch>
     </div>
         )

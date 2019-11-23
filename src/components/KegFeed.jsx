@@ -19,7 +19,7 @@ var kegList = [
   }
 ];
 function KegFeed(props){
-  console.log(props.kegFeed)
+  console.log(props.updateKeg)
   return (
     <div className="card">
       {props.kegFeed.map((k,index) =>
@@ -33,13 +33,15 @@ function KegFeed(props){
           handleSoldPint={props.handleSoldPint}
           backgroundColor={props.backgroundColor}
           currentRouterPath={props.currentRouterPath}
-          onDelete={props.onDelete} />
+          onDelete={props.onDelete}
+          updateKeg={props.updateKeg} />
       )}
     </div>
   );
 }
 KegFeed.propTypes = {
     kegFeed : PropTypes.array,
-    handleSoldPint: PropTypes.func
+    handleSoldPint: PropTypes.func,
+    updateKeg: PropTypes.func
 }
 export default KegFeed;

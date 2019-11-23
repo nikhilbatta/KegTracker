@@ -10,6 +10,7 @@ function Newkeg(props){
     let _pintsAvailable = null;
 
     function handleSubmit(event) {
+      console.log(_name.value)
         event.preventDefault();
         props.onNewKegCreation({name: _name.value, brand: _brand.value, price: _price.value, alcContent: _alcContent.value, pints: parseInt(_pintsAvailable.value)})
 

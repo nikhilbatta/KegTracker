@@ -12,9 +12,9 @@ import React, { useState, useEffect } from 'react';
 //   }
 // }
 function Keg(props){
-
+console.log(props.updateKeg)
   const [edit, setEdit] = useState(false);
-  const [name, setName] = useState("");
+  const [name, setName] = useState(props.name);
 
     var kegStyler = {
         display: 'flex',
@@ -45,7 +45,11 @@ function Keg(props){
       console.log("it got here")
     }
     useEffect(() => {
-      console.log(name)
+      if(props.currentRouterPath == '/admin'){
+        console.log(props.updateKeg)
+        props.updateKeg(props.index, name)
+      }
+      
     }, [name])
 
     const kegInformation =  <div style={styleByPintsAvailable()}  className="card">
