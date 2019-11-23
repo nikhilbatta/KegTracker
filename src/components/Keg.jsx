@@ -1,6 +1,6 @@
 // import React from 'React';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 // class Keg extends React.Component {
@@ -14,6 +14,7 @@ import React, { useState } from 'react';
 function Keg(props){
 
   const [edit, setEdit] = useState(false);
+  const [name, setName] = useState("");
 
     var kegStyler = {
         display: 'flex',
@@ -38,6 +39,15 @@ function Keg(props){
     function handleDeleteClick(){
       props.onDelete(props.index)
     }
+    function saveEditInformation(){
+      setEdit(false);
+      console.log(name);
+      console.log("it got here")
+    }
+    useEffect(() => {
+      console.log(name)
+    }, [name])
+
     const kegInformation =  <div style={styleByPintsAvailable()}  className="card">
     Name: <h3> {props.name}</h3>
     Brand: <h2>{props.brand}</h2>
@@ -50,14 +60,16 @@ function Keg(props){
 
 
   </div>
-  const [name, setName] = useState("");
+  
     if(props.currentRouterPath == "/admin"){
       if(edit) {
+        
         return (
           
           <div>
+            <button onClick={() => setEdit(!edit)}>Save</button>
         <input type="text"  onChange={e => setName(e.target.value)} defaultValue={props.name}></input>
-        <button onClick={this.save}>Save</button>
+        
       </div>
         )
       }
