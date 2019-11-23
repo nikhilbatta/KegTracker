@@ -1,10 +1,9 @@
-
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 
 
 function Keg(props) {
-  console.log(props.updateKeg)
+  
   const [edit, setEdit] = useState(false);
   const [name, setName] = useState(props.name);
 

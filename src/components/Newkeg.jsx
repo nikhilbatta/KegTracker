@@ -1,5 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom'
 
 
 function Newkeg(props){
@@ -8,11 +9,13 @@ function Newkeg(props){
     let _price = null;
     let _alcContent = null;
     let _pintsAvailable = null;
+    const [redirect, setRedirect] = useState(false);
 
     function handleSubmit(event) {
       console.log(_name.value)
         event.preventDefault();
         props.onNewKegCreation({name: _name.value, brand: _brand.value, price: _price.value, alcContent: _alcContent.value, pints: parseInt(_pintsAvailable.value)})
+        setRedirect(true);
 
     }
     var divformStyle = {
@@ -29,6 +32,7 @@ function Newkeg(props){
     return (
         
         <div style={divformStyle}>
+          {redirect ? <Redirect to='/allkegs'/> : ''}
             <h2>Create a Keg</h2>
         <form onSubmit={handleSubmit} style={formStyle}>
             <div className="form-group">
