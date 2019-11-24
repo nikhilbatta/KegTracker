@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 
 function Keg(props) {
   
   const [edit, setEdit] = useState(false);
-  const [name, setName] = useState(props.name);
-  const inputRef = React.createRef()
+  const name = useRef(props.name)
 
 
   
@@ -40,8 +39,7 @@ function Keg(props) {
   </div>
  
  const updateQuery = () => {
-  const inputText = inputRef.current.value
-  setName(inputText)
+  const inputText = name.current.value
   props.updateKeg(props.index, inputText)
   setEdit(false);
 
@@ -66,7 +64,11 @@ function Keg(props) {
       return (
         <div>
           
-          <input ref={inputRef} defaultValue={props.name}></input>
+          <input ref={name} defaultValue={props.name}></input>
+          {/* <input ref={editedBrand} defaultValue={props.name}></input>
+          <input ref={editedPrice} defaultValue={props.name}></input>
+          <input ref={editedAlcContent} defaultValue={props.name}></input> */}
+
           <button onClick={updateQuery}>Save</button>
         </div>
       )
