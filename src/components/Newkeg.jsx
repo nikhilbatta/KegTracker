@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux';
 
 
 function Newkeg(props){
@@ -12,10 +13,24 @@ function Newkeg(props){
     const [redirect, setRedirect] = useState(false);
 
     function handleSubmit(event) {
-      console.log(_name.value)
-        event.preventDefault();
-        props.onNewKegCreation({name: _name.value, brand: _brand.value, price: _price.value, alcContent: _alcContent.value, pints: parseInt(_pintsAvailable.value)})
-        setRedirect(true);
+      // console.log(_name.value)
+      //   event.preventDefault();
+      //   props.onNewKegCreation({name: _name.value, brand: _brand.value, price: _price.value, alcContent: _alcContent.value, pints: parseInt(_pintsAvailable.value)})
+      const { dispatch } = props;
+      event.preventDefault();
+      const action = {
+        type: 'ADD_TICKET',
+        names: _name.value,
+        brand: _brand.value,
+        price: _price.value,
+        alcContent: _alcContent.value,
+        pintsAvailable: _pintsAvailable.value
+        
+      };
+      dispatch(action);
+      _name.value = '';
+      
+      setRedirect(true);
 
     }
     var divformStyle = {
@@ -75,4 +90,4 @@ function Newkeg(props){
 Newkeg.propTypes = {
     onNewKegCreation: PropTypes.func
   };
-export default Newkeg;
+export default connect()(Newkeg);

@@ -5,13 +5,15 @@ import Homepage from './Homepage';
 import Newkeg from './Newkeg';
 import NewKegControl from './NewKegControl'
 import About from './About';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import Admin from './Admin'
+import {connect} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends React.Component {
     constructor(props){
         super(props);
+        console.log(props)
         this.state = {
             masterKegList: [],
             backgroundColor: "black"
@@ -66,4 +68,9 @@ class App extends React.Component {
         )
     }
 }
-export default App;
+const mapStateToProps = state => {
+    return {
+      masterTicketList: state
+    }
+  }
+export default withRouter(connect(mapStateToProps)(App));
