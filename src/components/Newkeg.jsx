@@ -19,8 +19,9 @@ function Newkeg(props){
       const { dispatch } = props;
       event.preventDefault();
       const action = {
+        id: 0,
         type: 'ADD_TICKET',
-        names: _name.value,
+        name: _name.value,
         brand: _brand.value,
         price: _price.value,
         alcContent: _alcContent.value,

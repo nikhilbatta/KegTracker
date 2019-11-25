@@ -8,14 +8,14 @@ import About from './About';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import Admin from './Admin'
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends React.Component {
     constructor(props){
         super(props);
-        console.log(props)
+        console.log(props.masterKegList)
         this.state = {
-            masterKegList: [],
             backgroundColor: "black"
         };
         this.addBeer = this.addBeer.bind(this);
@@ -59,18 +59,21 @@ class App extends React.Component {
       <Header/>
       <Switch>
         <Route exact path='/' component={Homepage} />
-        <Route exact path='/allkegs' render={() => <KegFeed kegFeed={this.state.masterKegList} handleSoldPint={this.handleSoldPint}  />} />
+        <Route exact path='/allkegs' render={() => <KegFeed kegFeed={this.props.masterKegList} handleSoldPint={this.handleSoldPint}  />} />
         <Route exact path = '/aboutus' component={About} />
         <Route exact path = '/newkeg' render={() => <NewKegControl onNewKegCreation={this.addBeer} />}/>
-        <Route exact path = '/admin' render={(props) => <Admin masterKegList={this.state.masterKegList} currentRouterPath={props.location.pathname} onDelete={this.handleDeleteKeg} updateKeg={this.updateKeg} />} />
+        <Route exact path = '/admin' render={(props) => <Admin masterKegList={this.props.masterKegList} currentRouterPath={props.location.pathname} onDelete={this.handleDeleteKeg} updateKeg={this.updateKeg} />} />
       </Switch>
     </div>
         )
     }
 }
+App.propTypes = {
+    masterKegList: PropTypes.array
+}
 const mapStateToProps = state => {
     return {
-      masterTicketList: state
+      masterKegList: state
     }
   }
 export default withRouter(connect(mapStateToProps)(App));

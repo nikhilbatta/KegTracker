@@ -19,7 +19,7 @@ var kegList = [
   }
 ];
 function KegFeed(props){
-  console.log(props.updateKeg)
+  console.log(props.kegFeed)
   return (
     <div className="card">
       {props.kegFeed.map((k,index) =>
