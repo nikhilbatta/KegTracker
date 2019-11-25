@@ -21,9 +21,12 @@ class App extends React.Component {
         this.handleDeleteKeg = this.handleDeleteKeg.bind(this);
         this.updateKeg = this.updateKeg.bind(this);
     }
-    updateKeg(i, newText){
+    updateKeg(i, name, brand, price, alcContent){
         var copyOfMaster = this.state.masterKegList;
-        copyOfMaster[i].name = newText;
+        copyOfMaster[i].name = name;
+        copyOfMaster[i].brand = brand;
+        copyOfMaster[i].price = price;
+        copyOfMaster[i].alcContent = alcContent;
         this.setState({masterKegList: copyOfMaster});
     }
     handleDeleteKeg(i){

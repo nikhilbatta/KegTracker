@@ -6,6 +6,10 @@ function Keg(props) {
   
   const [edit, setEdit] = useState(false);
   const name = useRef(props.name)
+  console.log(name.current)
+  const brand = useRef(props.brand)
+  const price = useRef(props.price);
+  const alcContent = useRef(props.alcContent)
 
 
   
@@ -39,23 +43,26 @@ function Keg(props) {
   </div>
  
  const updateQuery = () => {
-  const inputText = name.current.value
-  props.updateKeg(props.index, inputText)
+  const editedName = name.current.value
+  const editedPrice = price.current.value
+  const editedBrand = brand.current.value
+  const editedAlcContent  = alcContent.current.value
+  props.updateKeg(props.index, editedName, editedBrand, editedPrice, editedAlcContent)
   setEdit(false);
 
 }
   // dont run lifecycle method unless the route is admin.
   // otherwise what happens is that if you are on non admin route props.updateKeg isnt a function, which it shouldnt be for any route except for admin.
-  useEffect(() => {
-    if (props.currentRouterPath == '/admin') {
-      if(edit){
-        console.log(props.updateKeg)
-        props.updateKeg(props.index, name)
-      }
+  // useEffect(() => {
+  //   if (props.currentRouterPath == '/admin') {
+  //     if(edit){
+  //       console.log(props.updateKeg)
+  //       props.updateKeg(props.index, name)
+  //     }
       
-    }
+  //   }
 
-  }, [name])
+  // }, [name])
 
 
   // start of what I want to render from the route, might think about refactoring to make code look cleaner, but dont really know how to yet.
@@ -64,11 +71,11 @@ function Keg(props) {
       return (
         <div>
           
-          <input ref={name} defaultValue={props.name}></input>
-          {/* <input ref={editedBrand} defaultValue={props.name}></input>
-          <input ref={editedPrice} defaultValue={props.name}></input>
-          <input ref={editedAlcContent} defaultValue={props.name}></input> */}
-
+          
+          Name:<input ref={name} defaultValue={name.current}></input>
+          Brand:<input ref={brand} defaultValue={brand.current}></input>
+          Price:<input ref={price} defaultValue={price.current}></input>
+          Alc Content:<input ref={alcContent} defaultValue={alcContent.current}></input>
           <button onClick={updateQuery}>Save</button>
         </div>
       )
