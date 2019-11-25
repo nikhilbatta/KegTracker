@@ -72,10 +72,10 @@ function Keg(props) {
         <div>
           
           
-          Name:<input ref={name} defaultValue={name.current}></input>
-          Brand:<input ref={brand} defaultValue={brand.current}></input>
-          Price:<input ref={price} defaultValue={price.current}></input>
-          Alc Content:<input ref={alcContent} defaultValue={alcContent.current}></input>
+          Name:<input ref={name} defaultValue={props.name}></input>
+          Brand:<input ref={brand} defaultValue={props.brand}></input>
+          Price:<input ref={price} defaultValue={props.price}></input>
+          Alc Content:<input ref={alcContent} defaultValue={props.alcContent}></input>
           <button onClick={updateQuery}>Save</button>
         </div>
       )
