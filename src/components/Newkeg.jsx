@@ -25,6 +25,7 @@ function Newkeg(props){
         brand: _brand.value,
         price: _price.value,
         alcContent: _alcContent.value,
+        editing: false,
         pintsAvailable: parseInt(_pintsAvailable.value)
         
       };

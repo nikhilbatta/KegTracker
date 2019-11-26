@@ -1,7 +1,7 @@
 export default (state = [], action) => {
     switch (action.type) {
       case 'ADD_TICKET':
-        const { name, brand, price, alcContent, pintsAvailable, id } = action;
+        const { name, brand, price, alcContent, pintsAvailable, id, editing } = action;
        
         return [
           ...state,
@@ -11,12 +11,21 @@ export default (state = [], action) => {
             price : price,
             alcContent : alcContent,
             pintsAvailable: pintsAvailable,
-            id: id
+            id: id,
+            editing: editing
           }
         ]
         case 'EDIT_POST':
-            console.log(action.id)
-        return state.map((post)=>post.id === action.id)
+            if( state.map((post)=>post.id === action.id)){
+                console.log("it found one")
+                return [
+                    ...state,
+                    {
+                    editing: !editing
+                    }
+                ]
+            }
+        
       default:
         return state;
     }

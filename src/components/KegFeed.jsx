@@ -34,7 +34,8 @@ function KegFeed(props){
           backgroundColor={props.backgroundColor}
           currentRouterPath={props.currentRouterPath}
           onDelete={props.onDelete}
-          updateKeg={props.updateKeg} />
+          updateKeg={props.updateKeg}
+          editing={k.editing} />
       )}
     </div>
   );
