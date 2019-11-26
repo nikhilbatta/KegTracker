@@ -39,9 +39,10 @@ class App extends React.Component {
         this.setState({masterKegList : newMasterKegList})
     }
     handleSoldPint(i){
-        var copyOfMaster = this.state.masterKegList.slice();
-        copyOfMaster[i].pints --
-        if(copyOfMaster[i].pints == 120){
+        var copyOfMaster = this.props.masterKegList.slice();
+        
+        copyOfMaster[i].pintsAvailable --
+        if(copyOfMaster[i].pintsAvailable == 120){
             let newColor = "red"
             this.setState({backgroundColor: newColor})
         }

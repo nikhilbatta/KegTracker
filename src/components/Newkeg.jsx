@@ -25,7 +25,7 @@ function Newkeg(props){
         brand: _brand.value,
         price: _price.value,
         alcContent: _alcContent.value,
-        pintsAvailable: _pintsAvailable.value
+        pintsAvailable: parseInt(_pintsAvailable.value)
         
       };
       dispatch(action);

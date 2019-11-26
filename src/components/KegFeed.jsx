@@ -27,7 +27,7 @@ function KegFeed(props){
           brand={k.brand}
           price={k.price}
           alcContent={k.alcContent}
-          pintsAvailable={k.pints}
+          pintsAvailable={k.pintsAvailable}
           key={index}
           index={index}
           handleSoldPint={props.handleSoldPint}
