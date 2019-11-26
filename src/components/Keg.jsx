@@ -68,13 +68,16 @@ function Keg(props) {
 
   const startEdit = () => {
     console.log(props.editing)
+    console.log(props)
     props.dispatch({type:'EDIT_POST',id:props.index})
     console.log(props.editing)
     // setEdit(true);
   }
   // start of what I want to render from the route, might think about refactoring to make code look cleaner, but dont really know how to yet.
   if (props.currentRouterPath == "/admin") {
+    console.log(props)
     if (props.editing) {
+      console.log(props)
       return (
         <div>
           

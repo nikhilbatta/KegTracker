@@ -16,16 +16,20 @@ export default (state = [], action) => {
           }
         ]
         case 'EDIT_POST':
-            if( state.map((post)=>post.id === action.id)){
-                console.log("it found one")
-                return [
-                    ...state,
-                    {
-                    editing: !editing
-                    }
-                ]
-            }
-        
+            // wanted to implement in this way of doing it but the ? mark was giving me syntax errors, come back to this later.
+            return state.map((post)=>post.id === action.id ? {...post,editing:!post.editing}:post)
+
+            // if( state.map((post)=>post.id === action.id)){
+            //     console.log("true wa")
+            //    console.log(...state)
+            //     return [
+            //         ...state[action.id],
+            //         {
+            //         editing: !editing,
+            //         name: name
+            //         }
+            //     ]
+            // }
       default:
         return state;
     }
