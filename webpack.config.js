@@ -62,11 +62,13 @@ module.exports = {
         options: {
           presets: [
             ["es2015", {"modules": false}],
-            "react",
+            "react"
           ],
           plugins: [
             "react-hot-loader/babel",
-            "styled-jsx/babel"
+            "styled-jsx/babel",
+            "transform-object-rest-spread"
+          
           ]
         }
       }
