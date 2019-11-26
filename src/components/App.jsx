@@ -18,7 +18,7 @@ class App extends React.Component {
         this.state = {
             backgroundColor: "black"
         };
-        this.addBeer = this.addBeer.bind(this);
+        // this.addBeer = this.addBeer.bind(this);
         this.handleSoldPint = this.handleSoldPint.bind(this);
         this.handleDeleteKeg = this.handleDeleteKeg.bind(this);
         this.updateKeg = this.updateKeg.bind(this);
@@ -48,12 +48,12 @@ class App extends React.Component {
         }
         this.setState({masterKegList: copyOfMaster })
     }
-    addBeer(newKeg){
-        console.log(newKeg)
-        var newKegList = this.state.masterKegList.slice();
-        newKegList.push(newKeg);
-        this.setState({masterKegList: newKegList})
-    }
+    // addBeer(newKeg){
+    //     console.log(newKeg)
+    //     var newKegList = this.state.masterKegList.slice();
+    //     newKegList.push(newKeg);
+    //     this.setState({masterKegList: newKegList})
+    // }
     render(){
         return (
             <div>

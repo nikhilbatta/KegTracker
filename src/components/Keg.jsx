@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
+
 
 
 function Keg(props) {
@@ -64,7 +66,11 @@ function Keg(props) {
 
   // }, [name])
 
-
+  const startEdit = () => {
+    
+    props.dispatch({type:'EDIT_POST',id:props.index})
+    // setEdit(true);
+  }
   // start of what I want to render from the route, might think about refactoring to make code look cleaner, but dont really know how to yet.
   if (props.currentRouterPath == "/admin") {
     if (edit) {
@@ -84,7 +90,7 @@ function Keg(props) {
       <div>
         {kegInformation}
         <button onClick={handleDeleteClick}>Delete only for Admin</button>
-        <button onClick={() => setEdit(true)}>Edit</button>
+        <button onClick={startEdit}>Edit</button>
       </div>
     )
   } else {
@@ -104,4 +110,4 @@ Keg.propTypes = {
   alcContent: PropTypes.string,
   pintsAvailable: PropTypes.number
 };
-export default Keg;
+export default connect()(Keg);
