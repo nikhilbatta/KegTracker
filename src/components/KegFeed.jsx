@@ -28,8 +28,8 @@ function KegFeed(props){
           price={k.price}
           alcContent={k.alcContent}
           pintsAvailable={k.pintsAvailable}
+          id={k.id}
           key={index}
-          index={index}
           handleSoldPint={props.handleSoldPint}
           backgroundColor={props.backgroundColor}
           currentRouterPath={props.currentRouterPath}

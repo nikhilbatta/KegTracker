@@ -69,7 +69,8 @@ function Keg(props) {
   const startEdit = () => {
     console.log(props.editing)
     console.log(props)
-    props.dispatch({type:'EDIT_POST',id:props.index})
+    console.log(props.index)
+    props.dispatch({type:'EDIT_POST',id:props.id})
     console.log(props.editing)
     // setEdit(true);
   }
