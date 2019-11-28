@@ -49,8 +49,13 @@ function Keg(props) {
   const editedPrice = price.current.value
   const editedBrand = brand.current.value
   const editedAlcContent  = alcContent.current.value
-  props.updateKeg(props.index, editedName, editedBrand, editedPrice, editedAlcContent)
-  setEdit(false);
+ const data = {
+   editedName,
+   editedPrice,
+   editedBrand,
+   editedAlcContent
+ }
+ props.dispatch({ type: 'UPDATE', id:props.id, data: data })
 
 }
   // dont run lifecycle method unless the route is admin.
