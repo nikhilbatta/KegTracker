@@ -14,23 +14,22 @@ import 'bootstrap/dist/css/bootstrap.css';
 class App extends React.Component {
     constructor(props){
         super(props);
-        console.log(props.masterKegList)
         this.state = {
             backgroundColor: "black"
         };
         // this.addBeer = this.addBeer.bind(this);
         this.handleSoldPint = this.handleSoldPint.bind(this);
         // this.handleDeleteKeg = this.handleDeleteKeg.bind(this);
-        this.updateKeg = this.updateKeg.bind(this);
+        // this.updateKeg = this.updateKeg.bind(this);
     }
-    updateKeg(i, name, brand, price, alcContent){
-        var copyOfMaster = this.state.masterKegList;
-        copyOfMaster[i].name = name;
-        copyOfMaster[i].brand = brand;
-        copyOfMaster[i].price = price;
-        copyOfMaster[i].alcContent = alcContent;
-        this.setState({masterKegList: copyOfMaster});
-    }
+    // updateKeg(i, name, brand, price, alcContent){
+    //     var copyOfMaster = this.state.masterKegList;
+    //     copyOfMaster[i].name = name;
+    //     copyOfMaster[i].brand = brand;
+    //     copyOfMaster[i].price = price;
+    //     copyOfMaster[i].alcContent = alcContent;
+    //     this.setState({masterKegList: copyOfMaster});
+    // }
     // handleDeleteKeg(i){
     //     console.log(i)
     //     var newMasterKegList = this.state.masterKegList
