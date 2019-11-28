@@ -30,7 +30,7 @@ function Keg(props) {
 
   }
   function handleDeleteClick() {
-    props.onDelete(props.index)
+    props.dispatch({type:'DELETE_KEG',id:props.id})
   }
 
   const kegInformation = <div style={styleByPintsAvailable()} className="card">
@@ -70,7 +70,7 @@ function Keg(props) {
     console.log(props.editing)
     console.log(props)
     console.log(props.index)
-    props.dispatch({type:'EDIT_POST',id:props.id})
+    props.dispatch({type:'EDIT_KEG',id:props.id})
     console.log(props.editing)
     // setEdit(true);
   }

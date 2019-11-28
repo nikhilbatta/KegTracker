@@ -20,7 +20,7 @@ class App extends React.Component {
         };
         // this.addBeer = this.addBeer.bind(this);
         this.handleSoldPint = this.handleSoldPint.bind(this);
-        this.handleDeleteKeg = this.handleDeleteKeg.bind(this);
+        // this.handleDeleteKeg = this.handleDeleteKeg.bind(this);
         this.updateKeg = this.updateKeg.bind(this);
     }
     updateKeg(i, name, brand, price, alcContent){
@@ -31,13 +31,13 @@ class App extends React.Component {
         copyOfMaster[i].alcContent = alcContent;
         this.setState({masterKegList: copyOfMaster});
     }
-    handleDeleteKeg(i){
-        console.log(i)
-        var newMasterKegList = this.state.masterKegList
-        newMasterKegList.splice(i,1)
-        console.log("new master ", newMasterKegList)
-        this.setState({masterKegList : newMasterKegList})
-    }
+    // handleDeleteKeg(i){
+    //     console.log(i)
+    //     var newMasterKegList = this.state.masterKegList
+    //     newMasterKegList.splice(i,1)
+    //     console.log("new master ", newMasterKegList)
+    //     this.setState({masterKegList : newMasterKegList})
+    // }
     handleSoldPint(i){
         var copyOfMaster = this.props.masterKegList.slice();
         

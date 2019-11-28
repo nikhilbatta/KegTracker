@@ -20,7 +20,7 @@ function Newkeg(props){
       event.preventDefault();
       const action = {
         id: 0,
-        type: 'ADD_TICKET',
+        type: 'ADD_KEG',
         name: _name.value,
         brand: _brand.value,
         price: _price.value,
