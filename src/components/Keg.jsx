@@ -26,7 +26,8 @@ function Keg(props) {
     return pintStyle;
   }
   function handleButtonClick() {
-    props.handleSoldPint(props.index)
+    console.log(props)
+    props.handleSoldPint(props.id)
 
   }
   function handleDeleteClick() {

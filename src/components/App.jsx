@@ -13,15 +13,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends React.Component {
     constructor(props){
+        console.log(props.masterKegList)
         super(props);
         this.state = {
             backgroundColor: "black"
         };
-        // this.addBeer = this.addBeer.bind(this);
         this.handleSoldPint = this.handleSoldPint.bind(this);
+        // this.addBeer = this.addBeer.bind(this);
         // this.handleDeleteKeg = this.handleDeleteKeg.bind(this);
         // this.updateKeg = this.updateKeg.bind(this);
     }
+    // commented out because now using redux will revert back in commits if needed
+
+
     // updateKeg(i, name, brand, price, alcContent){
     //     var copyOfMaster = this.state.masterKegList;
     //     copyOfMaster[i].name = name;
@@ -37,22 +41,24 @@ class App extends React.Component {
     //     console.log("new master ", newMasterKegList)
     //     this.setState({masterKegList : newMasterKegList})
     // }
-    handleSoldPint(i){
-        var copyOfMaster = this.props.masterKegList.slice();
-        
-        copyOfMaster[i].pintsAvailable --
-        if(copyOfMaster[i].pintsAvailable == 120){
-            let newColor = "red"
-            this.setState({backgroundColor: newColor})
-        }
-        this.setState({masterKegList: copyOfMaster })
-    }
     // addBeer(newKeg){
     //     console.log(newKeg)
     //     var newKegList = this.state.masterKegList.slice();
     //     newKegList.push(newKeg);
     //     this.setState({masterKegList: newKegList})
     // }
+
+    // only reducer left to add now is handle sold Pint.
+    handleSoldPint(i){
+        var copyOfMaster = this.props.masterKegList.slice();
+        copyOfMaster.forEach(function(keg){
+            if(keg.id == i){
+                keg.pintsAvailable--
+            }
+        })
+        this.setState({masterKegList: copyOfMaster })
+    }
+    
     render(){
         return (
             <div>

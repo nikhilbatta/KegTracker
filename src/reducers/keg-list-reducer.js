@@ -24,11 +24,6 @@ export default (state = [], action) => {
 
         case 'EDIT_KEG':
             // wanted to implement in this way of doing it but the ? mark was giving me syntax errors, come back to this later.
-            console.log(state)
-            console.log(state.map((keg) => keg.id === action.id ? {
-                ...keg,
-                editing: !keg.editing
-            } : keg))
             return state.map((keg) => keg.id === action.id ? {
                 ...keg,
                 editing: !keg.editing
