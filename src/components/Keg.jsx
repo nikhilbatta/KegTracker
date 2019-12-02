@@ -16,7 +16,7 @@ function Keg(props) {
 
   
   function styleByPintsAvailable() {
-    var stylerVariable = "black"
+    var stylerVariable = "white"
     if (props.pintsAvailable <= 120) {
       stylerVariable = "red"
     }

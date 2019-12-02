@@ -7,7 +7,7 @@ function Header(){
     }
     return (
         <Navbar style={headerStyle} expand="lg">
-  <Navbar.Brand href="/">KegTracker</Navbar.Brand>
+  <Navbar.Brand href="#admin">I'm an Admin</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
